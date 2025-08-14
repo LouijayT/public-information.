@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Simple Sign Up Page</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Main Page -->
+  <div class="container" id="main-page">
+    <h1>Welcome to Our Website</h1>
+    <div class="buttons">
+      <button onclick="showSignUp()">Sign Up</button>
+      <button onclick="alert('Search function not implemented')">Search</button>
+    </div>
+  </div>
+
+  <!-- Sign Up Page -->
+  <div class="container hidden" id="signup-page">
+    <h2>Sign Up</h2>
+    <form id="signup-form" onsubmit="submitForm(event)">
+      <label for="name">Name:</label>
+      <input type="text" id="name" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" required>
+
+      <label for="birthday">Birthday:</label>
+      <input type="date" id="birthday" required>
+
+      <label for="address">Address:</label>
+      <textarea id="address" rows="3" required></textarea>
+
+      <button type="submit">Submit</button>
+    </form>
+    <button class="back-btn" onclick="goBack()">Back</button>
+  </div>
+
+  <!-- Home Page -->
+  <div class="container hidden" id="home-page">
+    <h1>Home Page</h1>
+    <p>Thank you for signing up!</p>
+    <button class="back-btn" onclick="goBack()">Back</button>
+  </div>
+
+  <script>
+    function showSignUp() {
+      document.getElementById('main-page').classList.add('hidden');
+      document.getElementById('signup-page').classList.remove('hidden');
+    }
+
+    function submitForm(event) {
+      event.preventDefault();
+      document.getElementById('signup-page').classList.add('hidden');
+      document.getElementById('home-page').classList.remove('hidden');
+    }
+
+    function goBack() {
+      // Hide all pages
+      document.getElementById('signup-page').classList.add('hidden');
+      document.getElementById('home-page').classList.add('hidden');
+      // Show main page
+      document.getElementById('main-page').classList.remove('hidden');
+    }
+  </script>
+
+</body>
+</html>
